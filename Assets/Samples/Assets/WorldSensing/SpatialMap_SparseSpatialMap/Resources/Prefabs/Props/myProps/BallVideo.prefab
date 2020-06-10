@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4197862423769732}
   - component: {fileID: 2426761247047988636}
+  - component: {fileID: 3236823406217187024}
   m_Layer: 0
   m_Name: BallVideo
   m_TagString: Untagged
@@ -41,9 +42,22 @@ SphereCollider:
   m_GameObject: {fileID: 1458751586281840}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &3236823406217187024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458751586281840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9192584495121403316
 GameObject:

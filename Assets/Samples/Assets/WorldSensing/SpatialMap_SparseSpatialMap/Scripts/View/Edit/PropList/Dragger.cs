@@ -179,12 +179,12 @@ namespace SpatialMap_SparseSpatialMap
             }
 
             var meshFilter = selection.GetComponentInChildren<MeshFilter>();
-            OutlinePrefab.SetActive(true);
+            /*OutlinePrefab.SetActive(true);
             OutlinePrefab.GetComponent<MeshFilter>().mesh = meshFilter.mesh;
             OutlinePrefab.transform.parent = meshFilter.transform;
             OutlinePrefab.transform.localPosition = Vector3.zero;
             OutlinePrefab.transform.localRotation = Quaternion.identity;
-            OutlinePrefab.transform.localScale = Vector3.one;
+            OutlinePrefab.transform.localScale = Vector3.one;*/
 
             SetFreeMove(isMoveFree);
         }

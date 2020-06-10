@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 114181005176528572}
+  WordSprite: {fileID: 21300000, guid: 48d55d2d252052d4eb3aaf6b6c7c7a95, type: 3}
 --- !u!114 &114621175938763806
 MonoBehaviour:
   m_ObjectHideFlags: 0

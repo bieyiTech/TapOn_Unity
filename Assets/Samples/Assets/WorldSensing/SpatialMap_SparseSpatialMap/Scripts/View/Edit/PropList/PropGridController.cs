@@ -14,6 +14,7 @@ namespace SpatialMap_SparseSpatialMap
 {
     public class PropGridController : MonoBehaviour
     {
+        public GameObject ConstomizeWordProp;
         public GameObject PropCellPrefab;
         public Dragger PropDragger;
 
@@ -43,6 +44,13 @@ namespace SpatialMap_SparseSpatialMap
                     PropDragger.StartCreate(controller);
                 };
                 controller.PointerUp += PropDragger.StopCreate;
+                controller.ShowConstomizeWordProp += () =>
+                {
+                    ConstomizeWordProp.SetActive(true);
+                    ConstomizeWordPropController c = ConstomizeWordProp.GetComponent<ConstomizeWordPropController>();
+                    if (c != null)
+                        c.setController(controller);
+                };
                 cells.Add(controller);
             }
         }

@@ -15,14 +15,19 @@ namespace SpatialMap_SparseSpatialMap
     public class PropCellController : MonoBehaviour
     {
         public Image Icon;
+        public Sprite WordSprite;
 
         public event Action PointerDown;
         public event Action PointerUp;
+        public event Action ShowConstomizeWordProp;
+
+        public PropCollection.ObjectGetMethod NowMethod { get;private set; }
 
         public PropCollection.Templet Templet { get; private set; }
 
         public void SetData(PropCollection.Templet templet)
         {
+            NowMethod = PropCollection.ObjectGetMethod.NormalModel;
             Templet = templet;
             Icon.sprite = templet.Icon;
         }
@@ -32,6 +37,10 @@ namespace SpatialMap_SparseSpatialMap
             Icon.color = Color.gray;
             if (PointerDown != null)
             {
+                if (Templet.method == PropCollection.ObjectGetMethod.ContomizeWord)
+                {
+                    return;
+                }
                 PointerDown();
             }
         }
@@ -41,8 +50,29 @@ namespace SpatialMap_SparseSpatialMap
             Icon.color = Color.white;
             if (PointerUp != null)
             {
+                if (Templet.method == PropCollection.ObjectGetMethod.ContomizeWord)
+                {
+                    NowMethod = PropCollection.ObjectGetMethod.ContomizeWord;
+                    Templet.method = PropCollection.ObjectGetMethod.NormalModel;
+                    if (ShowConstomizeWordProp != null)
+                        ShowConstomizeWordProp();
+                    return;
+                }
+                if (NowMethod == PropCollection.ObjectGetMethod.ContomizeWord)
+                {
+                    ChangeWordSprite();
+                    NowMethod = PropCollection.ObjectGetMethod.NormalModel;
+                    Templet.method = PropCollection.ObjectGetMethod.ContomizeWord;
+                }
                 PointerUp();
             }
+        }
+
+        public void ChangeWordSprite()
+        {
+            Sprite temp = Icon.sprite;
+            Icon.sprite = WordSprite;
+            WordSprite = temp;
         }
     }
 }

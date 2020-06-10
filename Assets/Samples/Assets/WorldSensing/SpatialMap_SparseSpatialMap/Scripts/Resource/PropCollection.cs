@@ -17,6 +17,14 @@ namespace SpatialMap_SparseSpatialMap
         public static PropCollection Instance;
         public List<Templet> Templets = new List<Templet>();
 
+        public enum ObjectGetMethod
+        {
+            NormalModel,
+            ContomizeWord,
+            TakePicture,
+            TakeVideo
+        }
+
         private void Awake()
         {
             Instance = this;
@@ -25,6 +33,7 @@ namespace SpatialMap_SparseSpatialMap
         [Serializable]
         public class Templet
         {
+            public ObjectGetMethod method;
             public GameObject Object;
             public Sprite Icon;
         }
